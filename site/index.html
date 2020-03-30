@@ -1,0 +1,540 @@
+<!DOCTYPE html>
+<html lang="ru">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<link rel="icon" href="media/ghost.svg" type="image/svg+xml">
+	<link rel="stylesheet" href="libs/bootstrap/bootstrap.min.css" type="text/css">
+	<title>Я.Геймификация</title>
+	<style>
+		ul {
+			list-style-image: url(media/img/rocket.png);
+			list-style-position: inside;
+		}
+
+		.check ul {
+			list-style-image: url(media/img/check.png);
+			list-style-position: inside;
+		}
+
+		ul>li {
+			padding: 10px 0;
+		}
+
+		ol {
+			list-style-type: lower-latin;
+			list-style-image: none;
+		}
+		.img-r,
+		.img-d {
+			margin: 20px 0;
+		}
+
+		.img-r img,
+		.img-d img {
+			max-width: 70px;
+			max-height: 70px;
+		}
+
+		.img-d {
+			display: none;
+		}
+
+		@media (max-width: 767px) {
+			.img-r {
+				display: none;
+			}
+
+			.img-d {
+				display: flex;
+				justify-content: center;
+			}
+			ul {
+				margin-top: 0;
+				margin-bottom: 0;
+			}
+		}
+	</style>
+</head>
+
+<body id="top">
+	<header class="sticky-top navbar navbar-expand-xl mb-4 navbar-light" style="background-color: #f0efef;">
+		<a class="navbar-brand" href="#top" style="font-size: 1.8rem;"><span style="color: red;">Я</span>ндекс Геймификация</a>
+		<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
+			aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+			<span class="navbar-toggler-icon"></span>
+		</button>
+		<div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+			<ul class="navbar-nav">
+				<li class="nav-item">
+					<a class="nav-link" href="#tasks">Задачи</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#party">Список участников</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#progress">Прогресс</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#notes">Заметки</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#partner">Сотрудничество</a>
+				</li>
+				<li class="nav-item">
+					<a class="nav-link" href="#links">Ссылки</a>
+				</li>
+			</ul>
+		</div>
+	</header>
+	<main class="container-lg">
+
+		<section>
+			<h3>Задача:</h3>
+			<p>Создание портала для сотрудников сервиса Яндекс.Деньги, с помощью которого можно было бы
+				нематериально мотивировать их к работе в формате игры. Цели для сотрудников ставятся в формате квестов различной
+				длительности и сложности. За выполнение квестов сотрудникам будут начисляться игровые баллы\валюта. Должны быть
+				реализованы личные кабинеты для администратора, руководителя, эксперта, сотрудника и гейм мастера.</p>
+		</section>
+
+		<!-- ЦЕЛИ И ЗАДАЧИ -->
+		<section>
+			<h3>Цели, которые нами движат:</h3>
+			<div class="row">
+				<ul class="col">
+					<li>Повысить вовлеченность сотрудников</li>
+					<li>Моральный дух сотрудников</li>
+					<li>Разнообразить рабочий процесс</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР ЗАДАНИЙ -->
+		<section id="tasks">
+			<h2 class="mb-3 mt-3">Для выполнения задачи необходимо разработать инструмент, в котором будут реализованы следующие модули:</h2>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструктор заданий</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+				</div>
+				<ul class="col-md mr-3">
+					<li>Выбор подразделения, для которого ставится задача</li>
+					<li>Таймер длительности задания (дедлайн)-в случае если выбран тип ежедневное задание</li>
+					<li>Выбор сложности задания, 3 уровня сложности</li>
+					<li>Поле для описания задачи</li>
+					<li>Возможность добавлять тэги к задачам</li>
+					<li>Список подзадач задания</li>
+					<li>Награда (зависит от сложности, времени и количества подзадач, а также типа задания)</li>
+				</ul>
+				<ul class="col-md">
+					<li>Кнопка закрыть и добавить задачу</li>
+					<li>Поле для написание заголовка для задачи</li>
+					<li>Выбор дней, в которые данная задача должна действовать</li>
+					<li>Индивидуальная/Командная задача выбор</li>
+					<li>Тип задания:
+						<ol>
+							<li>Квест</li>
+							<li>Ежедневная задача</li>
+						</ol>
+					</li>
+					<li>В случае если выбран квест, то значение левела, с которого открывается данный квест</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР ВОПРОСОВ -->
+		<section class="row no-gutters">
+			<div class="w-100">
+				<h3 class="mt-3">Конструктор вопросов и задач</h3>
+				<p>Конструктор должен содержать следующие поля:</p>
+			</div>
+			<ul class="col-md mr-3">
+				<li>Название вопроса или задачи</li>
+				<li>Описание вопроса(условие)</li>
+				<li>Варианты ответа(один из)
+					<ol>
+						<li>Один выбор</li>
+						<li>мультивыбор</li>
+						<li>Ввод числа</li>
+						<li>Ввод текста</li>
+					</ol>
+				</li>
+			</ul>
+			<ul class="col-md">
+				<li>Уровни сложности, 5 видов</li>
+				<li>Поле для загрузки картинки (может быть пустым)</li>
+				<li>Выбор тематики вопроса</li>
+				<li>Добавление тэга к вопросу</li>
+			</ul>
+		</section>
+
+		<!-- КОНСТРУКТОР АЧИВОК -->
+		<section>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструкто ачивок</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+				</div>
+				<ul class="col">
+					<li>Название ачивки</li>
+					<li>Описание ачивки</li>
+					<li>Описания условий получения ачивки</li>
+					<li>Вставки изображения ачивки</li>
+					<li>Описания наград за получение ачивки</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР СОРЕВНОВАНИЙ -->
+		<section>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструкто соревнований</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+				</div>
+				<ul class="col">
+					<li>Участников соревнования</li>
+					<li>Критерий, по которому проходит соревнование</li>
+					<li>Поле с выбором соперника, должна быть возможность поиска сотрудников по имени и фамилии</li>
+					<li>Длительность соревнования</li>
+					<li>Награда</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР ТОВАРОВ ДЛЯ МАГАЗИНА -->
+		<section>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструкто товаров для магазина</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+				</div>
+				<ul class="col-md mr-3">
+					<li>Название товара</li>
+					<li>Выбор категории товара</li>
+					<li>Фото товара</li>
+					<li>Условия получения товара</li>
+				</ul>
+				<ul class="col-md">
+					<li>Описание товара</li>
+					<li>Количество товара</li>
+					<li>В зависимости от категории товара</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР ТЕСТОВ -->
+		<section>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструкто тестов</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+					<p>Тест состоит из блоков, каждый создается отдельно</p>
+				</div>
+				<ul class="col-md mr-3">
+					<li>Тематика вопросов</li>
+					<li>Число вопросов</li>
+					<li>Коэффициент блока, при расчете итоговой оценки за текс</li>
+					<li>Поле с выбором вопросов</li>
+				</ul>
+				<ul class="col-md">
+					<li>Перенести тематику и количество вопросов из предыдущего блока</li>
+					<li>Настройка –можно покидать страницу с тестом или нет</li>
+					<li>астройка по возможности выбирать один или несколько вариантов ответа</li>
+					<li>Есть возможность перешагивать от одного вопроса к другому и возвращаться к вопросу, на который не смог
+						ответить</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР СОЗДАНИЯ КОМАНД -->
+		<section>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструкто создания команд</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+				</div>
+				<ul class="col-md mr-3">
+					<li>Название команды</li>
+					<li>Максимальное количество участников</li>
+					<li>Наименование подразделения, из которого выбираются участники</li>
+					<li>Поле со списком всех работников по подразделению, должна быть возможность поиска сотрудников по имени и
+						фамилии</li>
+				</ul>
+				<ul class="col-md">
+					<li>Описание товара</li>
+					<li>Количество товара</li>
+					<li>В зависимости от категории товара</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- КОНСТРУКТОР СОЗДАНИЯ ЗАДАНИЙ -->
+		<section>
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Конструктор создания тестовых заданий для собеседований</h3>
+					<p>Конструктор должен содержать следующие поля:</p>
+				</div>
+				<ul class="col">
+					<li>Тест состоит из списка вопросов. В зависимости от требований Ответы можно:
+						<ol>
+							<li>выбрать из списка предложенных</li>
+							<li>составить ответ руками</li>
+						</ol>
+					</li>
+					<li>Есть возможность задать настройки на просмотр:
+						<ol>
+							<li>сколько времени сотрудник потратил на выполнение заданий</li>
+							<li>закрывал или нет окно с тестом</li>
+						</ol>
+					</li>
+				</ul>
+			</div>
+		</section>
+
+		<!-- СПИСОК УЧАСТНИКОВ -->
+		<section id="party">
+			<h3 class="mt-3">Список участников и обязаности</h3>
+			<div class="row justify-content-center" style="margin: 0;">
+				<table class="col-md-8 table table-dark table-striped">
+					<caption style="caption-side: top;">Администрирование</caption>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>ФИО</th>
+							<th>Роль</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Федосеева Мария</td>
+							<td>1) Организация рабочего процесса<br>
+								2) Составление плана действий<br>
+								3) Распределение ролей
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row justify-content-center" style="margin: 0;">
+				<table class="col-md-8 table table-dark table-striped">
+					<caption style="caption-side: top;">Дизайн</caption>
+					<thead class="thead-dark">
+						<tr>
+							<th>#</th>
+							<th>ФИО</th>
+							<th>Роль</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Сычев Роман</td>
+							<td>1) Разработка дизайна;<br>
+								2) Создание макетов страниц
+							</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Федосеева Мария</td>
+							<td>Создание структуры сайта</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row justify-content-center" style="margin: 0;">
+				<table class="col-md-8 table table-dark table-striped">
+					<caption style="caption-side: top;">Фронтэнд</caption>
+					<thead class="thead-dark">
+						<tr>
+							<th>#</th>
+							<th>ФИО</th>
+							<th>Роль</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Пережогин Федор</td>
+							<td>Создание сайта проекта</td>
+						</tr>
+						<tr>
+							<th scope="row">2</th>
+							<td>Тишкина Алина</td>
+							<td>Создание сайта проекта</td>
+						</tr>
+						<tr>
+							<th scope="row">3</th>
+							<td>Югансон Аня</td>
+							<td>Разработка страниц проекта</td>
+						</tr>
+						<tr>
+							<th scope="row">4</th>
+							<td>Федосеева Мария</td>
+							<td>Разработка страниц проетка</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row justify-content-center" style="margin: 0;">
+				<table class="col-md-8 table table-dark table-striped">
+					<caption style="caption-side: top;">Бэкэнд</caption>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>ФИО</th>
+							<th>Роль</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Яковлев Артем</td>
+							<td>1) Разработка функционала проекта<br>
+								2) Разработка базы данных
+							</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+			<div class="row justify-content-center" style="margin: 0;">
+				<table class="col-md-8 table table-dark table-striped">
+					<caption style="caption-side: top;">Документация</caption>
+					<thead>
+						<tr>
+							<th>#</th>
+							<th>ФИО</th>
+							<th>Роль</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<th scope="row">1</th>
+							<td>Манджиева Местена</td>
+							<td>Составление отчета проекта по регламенту</td>
+						</tr>
+					</tbody>
+				</table>
+			</div>
+		</section>
+
+		<!-- ПРОГРЕСС -->
+		<section class="check" id="progress">
+			<h3 class="mt-3">Ход работы над проектом</h3>
+			<div class="row justify-content-center">
+				<div class="col-md-6">
+					<div class="row  no-gutters">
+						<h4 class="w-100">Этап 1</h4>
+						<ul class="col-md-8">
+							<li>Сбор требований</li>
+							<li>Создание структуры проекта</li>
+							<li>Разработка дизайна</li>
+							<li>Создание репозитория</li>
+							<li>Создание таск трекера</li>
+						</ul>
+						<div class="col-2 align-self-center ml-3 img-r">
+							<img class="w-100" src="media/img/next.png" alt="next">
+						</div>
+						<div class="col-12 align-self-center img-d">
+							<img class="w-100" src="media/img/next-d.png" alt="next">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row no-gutters">
+						<h4 class="w-100">Этап 2</h4>
+						<ul class="col-md-8">
+							<li>Составление индивидуальных планов работ</li>
+							<li>Разработка дизайна</li>
+							<li>Создание макетов проекта</li>
+							<li>Разработка сайта проекта</li>
+						</ul>
+						<div class="col-12 align-self-center img-d">
+							<img class="w-100" src="media/img/next-d.png" alt="next">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row no-gutters">
+						<h4 class="w-100">Этап 3</h4>
+						<ul  class="col-md-8">
+							<li>Верстка страниц проекта</li>
+							<li>Разработка базы данных проекта</li>
+							<li>Разработка бэкэнд части</li>
+						</ul>
+						<div class="col-2 align-self-center img-r ml-3">
+							<img class="w-100" src="media/img/next.png" alt="next">
+						</div>
+						<div class="col-12 align-self-center img-d">
+							<img class="w-100" src="media/img/next-d.png" alt="next">
+						</div>
+					</div>
+				</div>
+				<div class="col-md-6">
+					<div class="row  no-gutters">
+						<h4 class="w-100">Этап 4</h4>
+						<ul class="col">
+							<li>Тестирование</li>
+							<li>Сдача проекта</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</section>
+
+		<!-- ЗАМЕТКИ -->
+		<section id="notes">
+			<div class="row no-gutters">
+				<div class="w-100">
+					<h3 class="mt-3">Заметки</h3>
+					<p>Здесь можно оставлять сообщения по проекту</p>
+				</div>
+				<div class="row"></div>
+				<div class="row"></div>
+				<div class="row"></div>
+				<div class="row"></div>
+			</div>
+		</section>
+
+		<!-- СВЕДЕНИЯ О СОТРУДНИЧЕСТВЕ -->
+		<section id="partner">
+			<div class="row no-gutters">
+				<h3 class="w-100 mt-3">Сведения о сотрудниестве с внешними партнерами</h3>
+				<h4 class="w-100 text-danger">18 марта</h4>
+				<p>Cостоялась первая онлайн конференция, в которой мы составили план действий и договорились о форме
+					отчетность</p>
+			</div>
+		</section>
+
+		<!-- ССЫЛКИ НА НАШИ РЕСУРСЫ -->
+		<section id="links">
+			<h3 class="mt-3">Ссылки</h3>
+			<div class="row no-gutters">
+				<a class="col-md-4" target="_blank" href="https://github.com/yak0v13v/gamification">Ссылка на GIT-репозиторий</a>
+				<a class="col-md-4" target="_blank" href="https://trello.com/b/8la6E4EU/яндекс-геймификация">Ссылка на таск-трекер</a>
+			</div>
+		</section>
+	</main>
+	<footer class="bg-dark text-light row m-0 mt-3 justify-content-center align-items-center" style="min-height: 120px;">
+		<p>&#169; 2020 Московский политехнический университет</p>
+	</footer>
+	<script src="libs/jquery/jquery-3.4.1.min.js"></script>
+	<script src="libs/bootstrap/bootstrap.min.js"></script>
+	<script>
+		$(function () {
+			$('a[href^="#"]').bind('click.smoothscroll', function () {
+				var target = $(this).attr('href'),
+					bl_top = $(target).offset().top;
+				$('body, html').animate({
+					scrollTop: bl_top
+				}, 700);
+				return false;
+			})
+		});
+	</script>
+</body>
+
+</html>
